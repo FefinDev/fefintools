@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080b10">
+    <meta name="description" content="Fefin Tools - herramientas simples, rápidas y gratuitas.">
+
+    <title>Fefin Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- QRCodeJS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        defer>
+    </script>
+
+    <!-- JsBarcode -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+        defer>
+    </script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                F
+            </div>
+
+            <div class="brand-info">
+                <div class="brand-name">
+                    Fefin<span>Tools</span>
+                </div>
+
+                <div class="brand-subtitle">
+                    Simple tools
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-section-title">
+            HERRAMIENTAS
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active" data-tool="home">
+                <span class="nav-icon">⌂</span>
+                <span>Inicio</span>
+            </button>
+
+            <button class="nav-item" data-tool="qr">
+                <span class="nav-icon">▦</span>
+                <span>QR Generator</span>
+            </button>
+
+            <button class="nav-item" data-tool="password">
+                <span class="nav-icon">⌑</span>
+                <span>Password Generator</span>
+            </button>
+
+            <button class="nav-item" data-tool="palette">
+                <span class="nav-icon">◈</span>
+                <span>Palette Generator</span>
+            </button>
+
+            <button class="nav-item" data-tool="converter">
+                <span class="nav-icon">◫</span>
+                <span>Image Converter</span>
+            </button>
+
+            <button class="nav-item" data-tool="compressor">
+                <span class="nav-icon">◌</span>
+                <span>Image Compressor</span>
+            </button>
+
+            <button class="nav-item" data-tool="resizer">
+                <span class="nav-icon">⛶</span>
+                <span>Image Resizer</span>
+            </button>
+
+            <button class="nav-item" data-tool="whatsapp">
+                <span class="nav-icon">◉</span>
+                <span>WhatsApp Link</span>
+            </button>
+
+            <button class="nav-item" data-tool="barcode">
+                <span class="nav-icon">▥</span>
+                <span>Barcode Generator</span>
+            </button>
+
+            <button class="nav-item" data-tool="discount">
+                <span class="nav-icon">%</span>
+                <span>Discount Calculator</span>
+            </button>
+
+            <button class="nav-item" data-tool="utm">
+                <span class="nav-icon">↗</span>
+                <span>UTM Builder</span>
+            </button>
+
+            <button class="nav-item" data-tool="codes">
+                <span class="nav-icon">◇</span>
+                <span>Discount Codes</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-status">
+                <span class="status-dot"></span>
+                <span>fefintools.v6.rocks</span>
+            </div>
+
+            <div class="sidebar-credit">
+                Hecho por Fefin
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- MOBILE HEADER -->
+
+        <header class="mobile-header">
+
+            <button id="mobileMenuButton" class="icon-button">
+                ☰
+            </button>
+
+            <div class="mobile-brand">
+                Fefin<span>Tools</span>
+            </div>
+
+        </header>
+
+
+        <!-- HOME -->
+
+        <section id="homeView" class="view active">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        <span class="hero-dot"></span>
+                        Herramientas gratuitas
+                    </div>
+
+                    <h1>
+                        Herramientas simples.
+                        <span>Resultados rápidos.</span>
+                    </h1>
+
+                    <p>
+                        Una colección de herramientas útiles para personas,
+                        proyectos y negocios. Sin cuentas innecesarias.
+                    </p>
+
+                    <div class="hero-search">
+
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            id="toolSearch"
+                            type="text"
+                            placeholder="Buscar una herramienta..."
+                            autocomplete="off"
+                        >
+
+                        <kbd>Ctrl K</kbd>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-decoration">
+                    <div class="glow"></div>
+                    <div class="orb orb-one"></div>
+                    <div class="orb orb-two"></div>
+                    <div class="orb orb-three"></div>
+                </div>
+
+            </div>
+
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Todas las herramientas</h2>
+                    <p>
+                        <span id="toolCount">11</span> herramientas disponibles
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="tools-grid" id="toolsGrid">
+
+                <article class="tool-card" data-tool-card="qr" data-search="qr código codigo enlace url">
+                    <div class="tool-card-icon">▦</div>
+                    <div class="tool-card-content">
+                        <h3>QR Generator</h3>
+                        <p>Generá códigos QR desde texto, URLs y enlaces.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="password" data-search="password contraseña seguridad">
+                    <div class="tool-card-icon">⌑</div>
+                    <div class="tool-card-content">
+                        <h3>Password Generator</h3>
+                        <p>Creá contraseñas aleatorias y seguras.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="palette" data-search="color colores paleta diseño">
+                    <div class="tool-card-icon">◈</div>
+                    <div class="tool-card-content">
+                        <h3>Palette Generator</h3>
+                        <p>Generá paletas de colores rápidamente.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="converter" data-search="imagen image convertir conversor png jpg webp">
+                    <div class="tool-card-icon">◫</div>
+                    <div class="tool-card-content">
+                        <h3>Image Converter</h3>
+                        <p>Convertí imágenes entre PNG, JPG y WebP.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="compressor" data-search="imagen comprimir compresor tamaño peso">
+                    <div class="tool-card-icon">◌</div>
+                    <div class="tool-card-content">
+                        <h3>Image Compressor</h3>
+                        <p>Reducí el tamaño de tus imágenes.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="resizer" data-search="imagen tamaño redimensionar resize">
+                    <div class="tool-card-icon">⛶</div>
+                    <div class="tool-card-content">
+                        <h3>Image Resizer</h3>
+                        <p>Cambiá las dimensiones de una imagen.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="whatsapp" data-search="whatsapp mensaje link enlace">
+                    <div class="tool-card-icon">◉</div>
+                    <div class="tool-card-content">
+                        <h3>WhatsApp Link</h3>
+                        <p>Generá enlaces directos de WhatsApp.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="barcode" data-search="barcode barras código producto">
+                    <div class="tool-card-icon">▥</div>
+                    <div class="tool-card-content">
+                        <h3>Barcode Generator</h3>
+                        <p>Generá códigos de barras en formato SVG.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="discount" data-search="descuento precio porcentaje calculadora">
+                    <div class="tool-card-icon">%</div>
+                    <div class="tool-card-content">
+                        <h3>Discount Calculator</h3>
+                        <p>Calculá descuentos y precios finales.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card" data-tool-card="utm" data-search="utm marketing campaña url">
+                    <div class="tool-card-icon">↗</div>
+                    <div class="tool-card-content">
+                        <h3>UTM Builder</h3>
+                        <p>Creá URLs para campañas de marketing.</p>
+                    </div>
+                    <span class="tool-arrow">→</span>
+                </article>
+
+                <article class="tool-card featured" data-tool-card="codes" data-search="descuento código codigo promoción promocion cupon coupon campaña">
+                    <div class="featured-label">
+                        NUEVO
+                    </div>
+
+                    <div class="tool-card-icon">◇</div>
+
+                    <div class="tool-card-content">
+                        <h3>Discount Codes</h3>
+                        <p>Generá códigos promocionales según país, año y temporada.</p>
+                    </div>
+
+                    <span class="tool-arrow">→</span>
+                </article>
+
+            </div>
+
+
+            <div id="noSearchResults" class="empty-search hidden">
+
+                <div class="empty-icon">
+                    ⌕
+                </div>
+
+                <h3>No encontramos herramientas</h3>
+
+                <p>
+                    Probá con otro término de búsqueda.
+                </p>
+
+            </div>
+
+
+            <footer class="footer">
+                <span>fefintools.v6.rocks</span>
+            </footer>
+
+        </section>
+
+
+        <!-- TOOLS -->
+
+        <section id="toolsView" class="view">
+
+            <div id="toolsContainer"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toastContainer" class="toast-container"></div>
+
+
+<!-- LOADING -->
+
+<div id="pageLoader" class="page-loader">
+
+    <div class="loader-spinner"></div>
+
+</div>
+
+</body>
+</html>

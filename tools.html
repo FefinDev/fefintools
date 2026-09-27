@@ -1,0 +1,1735 @@
+<!--
+    CONTENIDO DE LAS HERRAMIENTAS
+    Este archivo es cargado dinámicamente por script.js.
+-->
+
+
+<!-- =====================================================
+     QR GENERATOR
+===================================================== -->
+
+<div class="tool-page" data-tool-page="qr">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ▦
+            </div>
+
+            <h1>QR Generator</h1>
+
+        </div>
+
+        <p>
+            Generá códigos QR desde cualquier texto o URL.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label for="qrText">
+                Contenido
+            </label>
+
+            <input
+                class="input"
+                id="qrText"
+                type="text"
+                placeholder="https://ejemplo.com"
+            >
+
+        </div>
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label for="qrSize">
+                    Tamaño
+                </label>
+
+                <select class="select" id="qrSize">
+
+                    <option value="180">
+                        Pequeño · 180px
+                    </option>
+
+                    <option value="260" selected>
+                        Mediano · 260px
+                    </option>
+
+                    <option value="360">
+                        Grande · 360px
+                    </option>
+
+                    <option value="500">
+                        Extra grande · 500px
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label for="qrLevel">
+                    Corrección de errores
+                </label>
+
+                <select class="select" id="qrLevel">
+
+                    <option value="L">
+                        Baja
+                    </option>
+
+                    <option value="M" selected>
+                        Media
+                    </option>
+
+                    <option value="Q">
+                        Alta
+                    </option>
+
+                    <option value="H">
+                        Máxima
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button class="primary-button" onclick="generateQR()">
+            Generar QR
+        </button>
+
+
+        <div id="qrResult" class="hidden">
+
+            <div class="qr-wrapper">
+
+                <div id="qrOutput"></div>
+
+            </div>
+
+            <div class="button-row">
+
+                <button
+                    class="secondary-button"
+                    onclick="downloadQR()">
+                    Descargar PNG
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="copyQRContent()">
+                    Copiar contenido
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PASSWORD
+===================================================== -->
+
+<div class="tool-page" data-tool-page="password">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ⌑
+            </div>
+
+            <h1>Password Generator</h1>
+
+        </div>
+
+        <p>
+            Generá contraseñas aleatorias desde tu navegador.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label>
+                Longitud
+            </label>
+
+            <div class="range-wrapper">
+
+                <input
+                    id="passwordLength"
+                    type="range"
+                    min="4"
+                    max="64"
+                    value="18"
+                    oninput="
+                        document.getElementById('passwordLengthValue').textContent =
+                        this.value
+                    "
+                >
+
+                <span
+                    id="passwordLengthValue"
+                    class="range-value">
+                    18
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="checkbox-grid">
+
+            <label class="checkbox">
+                <input id="passUpper" type="checkbox" checked>
+                Mayúsculas
+            </label>
+
+            <label class="checkbox">
+                <input id="passLower" type="checkbox" checked>
+                Minúsculas
+            </label>
+
+            <label class="checkbox">
+                <input id="passNumbers" type="checkbox" checked>
+                Números
+            </label>
+
+            <label class="checkbox">
+                <input id="passSymbols" type="checkbox" checked>
+                Símbolos
+            </label>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="generatePassword()">
+            Generar contraseña
+        </button>
+
+
+        <div id="passwordResult" class="result-panel hidden">
+
+            <div class="result-label">
+                Contraseña generada
+            </div>
+
+            <div
+                id="passwordOutput"
+                class="result-value">
+            </div>
+
+            <div class="result-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="copyElement('passwordOutput')">
+                    Copiar
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="generatePassword()">
+                    Generar otra
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PALETTE
+===================================================== -->
+
+<div class="tool-page" data-tool-page="palette">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ◈
+            </div>
+
+            <h1>Palette Generator</h1>
+
+        </div>
+
+        <p>
+            Generá una paleta a partir de un color base.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label>
+                Color base
+            </label>
+
+            <div class="color-input-row">
+
+                <input
+                    id="baseColor"
+                    class="color-input"
+                    type="color"
+                    value="#0080ff"
+                >
+
+                <input
+                    id="baseColorText"
+                    class="input color-text"
+                    type="text"
+                    value="#0080FF"
+                    maxlength="7"
+                >
+
+            </div>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="generatePalette()">
+            Generar paleta
+        </button>
+
+        <div
+            id="paletteResult"
+            class="palette-grid">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE CONVERTER
+===================================================== -->
+
+<div class="tool-page" data-tool-page="converter">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ◫
+            </div>
+
+            <h1>Image Converter</h1>
+
+        </div>
+
+        <p>
+            Convertí imágenes directamente en tu navegador.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="file-drop" id="converterDrop">
+
+            <div class="file-drop-icon">
+                ◫
+            </div>
+
+            <strong>
+                Seleccioná una imagen
+            </strong>
+
+            <p>
+                PNG, JPG, JPEG, WebP y otros formatos compatibles.
+            </p>
+
+            <input
+                id="converterFile"
+                type="file"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <div id="converterInfo" class="hidden">
+
+            <div class="file-info">
+
+                <div class="file-stat">
+
+                    <div class="file-stat-label">
+                        Archivo
+                    </div>
+
+                    <div
+                        id="converterFileName"
+                        class="file-stat-value">
+                    </div>
+
+                </div>
+
+                <div class="file-stat">
+
+                    <div class="file-stat-label">
+                        Tamaño
+                    </div>
+
+                    <div
+                        id="converterFileSize"
+                        class="file-stat-value">
+                    </div>
+
+                </div>
+
+                <div class="file-stat">
+
+                    <div class="file-stat-label">
+                        Dimensiones
+                    </div>
+
+                    <div
+                        id="converterDimensions"
+                        class="file-stat-value">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid" style="margin-top: 14px;">
+
+            <div class="field">
+
+                <label>
+                    Formato de salida
+                </label>
+
+                <select
+                    id="converterFormat"
+                    class="select">
+
+                    <option value="image/png">
+                        PNG
+                    </option>
+
+                    <option value="image/jpeg">
+                        JPG
+                    </option>
+
+                    <option value="image/webp">
+                        WebP
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Calidad
+                </label>
+
+                <select
+                    id="converterQuality"
+                    class="select">
+
+                    <option value="0.6">
+                        60%
+                    </option>
+
+                    <option value="0.8">
+                        80%
+                    </option>
+
+                    <option value="0.92" selected>
+                        92%
+                    </option>
+
+                    <option value="1">
+                        100%
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="convertImage()">
+            Convertir y descargar
+        </button>
+
+
+        <div id="converterResult" class="result-panel hidden">
+
+            <div class="result-label">
+                Resultado
+            </div>
+
+            <div
+                id="converterResultText"
+                class="result-value">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE COMPRESSOR
+===================================================== -->
+
+<div class="tool-page" data-tool-page="compressor">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ◌
+            </div>
+
+            <h1>Image Compressor</h1>
+
+        </div>
+
+        <p>
+            Reducí el peso de una imagen y compará el resultado.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="file-drop">
+
+            <div class="file-drop-icon">
+                ◌
+            </div>
+
+            <strong>
+                Elegí una imagen
+            </strong>
+
+            <p>
+                La imagen se procesa localmente.
+            </p>
+
+            <input
+                id="compressFile"
+                type="file"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <div class="field" style="margin-top: 15px;">
+
+            <label>
+                Calidad
+            </label>
+
+            <div class="range-wrapper">
+
+                <input
+                    id="compressQuality"
+                    type="range"
+                    min="10"
+                    max="100"
+                    value="80"
+                    oninput="
+                        document.getElementById('compressQualityValue').textContent =
+                        this.value + '%'
+                    "
+                >
+
+                <span
+                    id="compressQualityValue"
+                    class="range-value">
+                    80%
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Formato
+                </label>
+
+                <select
+                    id="compressFormat"
+                    class="select">
+
+                    <option value="image/jpeg">
+                        JPG
+                    </option>
+
+                    <option value="image/webp">
+                        WebP
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Mantener dimensiones
+                </label>
+
+                <select
+                    id="compressDimensions"
+                    class="select">
+
+                    <option value="yes" selected>
+                        Sí
+                    </option>
+
+                    <option value="no">
+                        No
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="compressImage()">
+            Comprimir imagen
+        </button>
+
+
+        <div
+            id="compressionResult"
+            class="hidden">
+
+            <div class="compression-stats">
+
+                <div class="compression-stat">
+
+                    <strong id="originalSize">
+                        —
+                    </strong>
+
+                    <span>
+                        Tamaño original
+                    </span>
+
+                </div>
+
+                <div class="compression-stat">
+
+                    <strong id="compressedSize">
+                        —
+                    </strong>
+
+                    <span>
+                        Tamaño final
+                    </span>
+
+                </div>
+
+                <div class="compression-stat">
+
+                    <strong
+                        id="compressionSaved"
+                        class="savings">
+                        —
+                    </strong>
+
+                    <span>
+                        Reducción
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="compressionDimensions"
+                class="info-box"
+                style="margin-top: 10px; margin-bottom: 0;">
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    id="downloadCompressed"
+                    class="secondary-button">
+                    Descargar imagen
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE RESIZER
+===================================================== -->
+
+<div class="tool-page" data-tool-page="resizer">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ⛶
+            </div>
+
+            <h1>Image Resizer</h1>
+
+        </div>
+
+        <p>
+            Cambiá las dimensiones de una imagen.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="file-drop">
+
+            <div class="file-drop-icon">
+                ⛶
+            </div>
+
+            <strong>
+                Elegí una imagen
+            </strong>
+
+            <p>
+                Las dimensiones originales se detectan automáticamente.
+            </p>
+
+            <input
+                id="resizeFile"
+                type="file"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <div
+            id="resizeOriginalInfo"
+            class="info-box hidden"
+            style="margin-top: 14px;">
+        </div>
+
+
+        <div class="form-grid" style="margin-top: 14px;">
+
+            <div class="field">
+
+                <label>
+                    Ancho
+                </label>
+
+                <input
+                    id="resizeWidth"
+                    class="input"
+                    type="number"
+                    min="1"
+                    placeholder="1920"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Alto
+                </label>
+
+                <input
+                    id="resizeHeight"
+                    class="input"
+                    type="number"
+                    min="1"
+                    placeholder="1080"
+                >
+
+            </div>
+
+        </div>
+
+
+        <label class="checkbox">
+
+            <input
+                id="keepRatio"
+                type="checkbox"
+                checked
+            >
+
+            Mantener proporción
+
+        </label>
+
+
+        <div
+            id="resizePreview"
+            class="hidden">
+        </div>
+
+
+        <button
+            class="primary-button"
+            style="margin-top: 14px;"
+            onclick="resizeImage()">
+            Redimensionar y descargar
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<div class="tool-page" data-tool-page="whatsapp">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ◉
+            </div>
+
+            <h1>WhatsApp Link</h1>
+
+        </div>
+
+        <p>
+            Creá un enlace directo para iniciar una conversación.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label>
+                Número de teléfono
+            </label>
+
+            <input
+                id="waNumber"
+                class="input"
+                type="text"
+                placeholder="+54 9 351 1234567"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Mensaje inicial
+            </label>
+
+            <textarea
+                id="waMessage"
+                class="input"
+                placeholder="Hola, quisiera consultar por..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="generateWhatsApp()">
+            Generar enlace
+        </button>
+
+
+        <div
+            id="waResult"
+            class="result-panel hidden">
+
+            <div class="result-label">
+                Enlace generado
+            </div>
+
+            <div
+                id="waOutput"
+                class="result-value">
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    class="secondary-button"
+                    onclick="copyElement('waOutput')">
+                    Copiar
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="openWhatsApp()">
+                    Abrir WhatsApp
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="generateWAQR()">
+                    Generar QR
+                </button>
+
+            </div>
+
+
+            <div
+                id="waQrWrapper"
+                class="qr-wrapper hidden">
+
+                <div id="waQrOutput"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BARCODE
+===================================================== -->
+
+<div class="tool-page" data-tool-page="barcode">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ▥
+            </div>
+
+            <h1>Barcode Generator</h1>
+
+        </div>
+
+        <p>
+            Generá códigos de barras para productos y etiquetas.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label>
+                Código
+            </label>
+
+            <input
+                id="barcodeText"
+                class="input"
+                type="text"
+                placeholder="123456789"
+            >
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Formato
+                </label>
+
+                <select
+                    id="barcodeFormat"
+                    class="select">
+
+                    <option value="CODE128">
+                        CODE 128
+                    </option>
+
+                    <option value="CODE39">
+                        CODE 39
+                    </option>
+
+                    <option value="EAN13">
+                        EAN-13
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Mostrar valor
+                </label>
+
+                <select
+                    id="barcodeDisplay"
+                    class="select">
+
+                    <option value="true" selected>
+                        Sí
+                    </option>
+
+                    <option value="false">
+                        No
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="generateBarcode()">
+            Generar código
+        </button>
+
+
+        <div
+            id="barcodeResult"
+            class="hidden">
+
+            <div class="barcode-wrapper">
+
+                <svg id="barcodeSvg"></svg>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    class="secondary-button"
+                    onclick="downloadBarcodeSVG()">
+                    Descargar SVG
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DISCOUNT CALCULATOR
+===================================================== -->
+
+<div class="tool-page" data-tool-page="discount">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                %
+            </div>
+
+            <h1>Discount Calculator</h1>
+
+        </div>
+
+        <p>
+            Calculá descuentos y precios finales.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Precio original
+                </label>
+
+                <input
+                    id="discountPrice"
+                    class="input"
+                    type="number"
+                    min="0"
+                    placeholder="50000"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Descuento
+                </label>
+
+                <input
+                    id="discountPercent"
+                    class="input"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="20"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="calculateDiscount()">
+            Calcular descuento
+        </button>
+
+
+        <div
+            id="discountResult"
+            class="result-panel hidden">
+
+            <div class="price-result">
+
+                <div class="price-box">
+
+                    <span>
+                        Descuento
+                    </span>
+
+                    <strong id="discountAmount">
+                        —
+                    </strong>
+
+                </div>
+
+                <div class="price-box">
+
+                    <span>
+                        Ahorrás
+                    </span>
+
+                    <strong id="discountPercentResult">
+                        —
+                    </strong>
+
+                </div>
+
+                <div class="price-box final">
+
+                    <span>
+                        Precio final
+                    </span>
+
+                    <strong id="finalPrice">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     UTM BUILDER
+===================================================== -->
+
+<div class="tool-page" data-tool-page="utm">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ↗
+            </div>
+
+            <h1>UTM Builder</h1>
+
+        </div>
+
+        <p>
+            Creá URLs con parámetros UTM para campañas.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="field">
+
+            <label>
+                URL
+            </label>
+
+            <input
+                id="utmUrl"
+                class="input"
+                type="text"
+                placeholder="https://ejemplo.com"
+            >
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Source
+                </label>
+
+                <input
+                    id="utmSource"
+                    class="input"
+                    type="text"
+                    placeholder="instagram"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Medium
+                </label>
+
+                <input
+                    id="utmMedium"
+                    class="input"
+                    type="text"
+                    placeholder="social"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Campaign
+                </label>
+
+                <input
+                    id="utmCampaign"
+                    class="input"
+                    type="text"
+                    placeholder="oferta-septiembre"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Content
+                </label>
+
+                <input
+                    id="utmContent"
+                    class="input"
+                    type="text"
+                    placeholder="banner-1"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="generateUTM()">
+            Generar URL
+        </button>
+
+
+        <div
+            id="utmResult"
+            class="result-panel hidden">
+
+            <div class="result-label">
+                URL generada
+            </div>
+
+            <div
+                id="utmOutput"
+                class="url-preview">
+            </div>
+
+            <div class="button-row">
+
+                <button
+                    class="secondary-button"
+                    onclick="copyElement('utmOutput')">
+                    Copiar URL
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DISCOUNT CODE GENERATOR
+===================================================== -->
+
+<div class="tool-page" data-tool-page="codes">
+
+    <button class="tool-back" onclick="showHome()">
+        ← Volver a herramientas
+    </button>
+
+    <header class="tool-page-header">
+
+        <div class="tool-page-title">
+
+            <div class="tool-page-icon">
+                ◇
+            </div>
+
+            <h1>Discount Code Generator</h1>
+
+        </div>
+
+        <p>
+            Generá códigos promocionales utilizando país, año,
+            temporada y campañas.
+        </p>
+
+    </header>
+
+
+    <div class="panel">
+
+        <div class="info-box">
+
+            El modo inteligente utiliza el año actual,
+            la temporada correspondiente al hemisferio del país
+            y campañas configuradas para generar códigos más relevantes.
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    País
+                </label>
+
+                <select
+                    id="codeCountry"
+                    class="select"
+                    onchange="updateCampaigns()">
+
+                    <option value="AR">
+                        🇦🇷 Argentina
+                    </option>
+
+                    <option value="MX">
+                        🇲🇽 México
+                    </option>
+
+                    <option value="CL">
+                        🇨🇱 Chile
+                    </option>
+
+                    <option value="CO">
+                        🇨🇴 Colombia
+                    </option>
+
+                    <option value="UY">
+                        🇺🇾 Uruguay
+                    </option>
+
+                    <option value="BR">
+                        🇧🇷 Brasil
+                    </option>
+
+                    <option value="US">
+                        🇺🇸 Estados Unidos
+                    </option>
+
+                    <option value="ES">
+                        🇪🇸 España
+                    </option>
+
+                    <option value="GB">
+                        🇬🇧 Reino Unido
+                    </option>
+
+                    <option value="INT">
+                        🌎 Internacional
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Año
+                </label>
+
+                <input
+                    id="codeYear"
+                    class="input"
+                    type="number"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Temporada
+                </label>
+
+                <select
+                    id="codeSeason"
+                    class="select">
+
+                    <option value="AUTO">
+                        🤖 Automática
+                    </option>
+
+                    <option value="SPRING">
+                        🌸 Primavera
+                    </option>
+
+                    <option value="SUMMER">
+                        ☀️ Verano
+                    </option>
+
+                    <option value="AUTUMN">
+                        🍂 Otoño
+                    </option>
+
+                    <option value="WINTER">
+                        ❄️ Invierno
+                    </option>
+
+                    <option value="CHRISTMAS">
+                        🎄 Navidad
+                    </option>
+
+                    <option value="HALLOWEEN">
+                        🎃 Halloween
+                    </option>
+
+                    <option value="BACK2SCHOOL">
+                        🎒 Vuelta a clases
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Estilo
+                </label>
+
+                <select
+                    id="codeStyle"
+                    class="select">
+
+                    <option value="SMART">
+                        🧠 Inteligente
+                    </option>
+
+                    <option value="CAMPAIGN">
+                        🏷️ Campaña
+                    </option>
+
+                    <option value="RANDOM">
+                        🎲 Aleatorio
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Prefijo personalizado
+                </label>
+
+                <input
+                    id="codePrefix"
+                    class="input"
+                    type="text"
+                    placeholder="FEFIN"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Cantidad de códigos
+                </label>
+
+                <input
+                    id="codeAmount"
+                    class="input"
+                    type="number"
+                    min="1"
+                    max="500"
+                    value="10"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>
+                    Caracteres aleatorios
+                </label>
+
+                <input
+                    id="codeLength"
+                    class="input"
+                    type="number"
+                    min="4"
+                    max="20"
+                    value="5"
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label>
+                    Separador
+                </label>
+
+                <select
+                    id="codeSeparator"
+                    class="select">
+
+                    <option value="-">
+                        Guion -
+                    </option>
+
+                    <option value="_">
+                        Guion bajo _
+                    </option>
+
+                    <option value="">
+                        Sin separador
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Campañas sugeridas
+            </label>
+
+            <div
+                id="campaignList"
+                class="campaign-list">
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="generateDiscountCodes()">
+            Generar códigos
+        </button>
+
+
+        <div
+            id="codesResult"
+            class="hidden">
+
+            <div
+                id="generatedCodes"
+                class="generated-codes">
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    class="secondary-button"
+                    onclick="copyAllCodes()">
+                    Copiar todos
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="downloadCodes()">
+                    Descargar TXT
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
